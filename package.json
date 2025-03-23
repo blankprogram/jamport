@@ -9,10 +9,17 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.17",
     "vite": "^6.2.0"
   },
   "dependencies": {
+    "@tailwindcss/cli": "^4.0.15",
+    "@tailwindcss/vite": "^4.0.15",
     "ogl": "^1.0.11",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "resolve-lygia": "^1.0.4",
     "tweakpane": "^4.0.5"
   }
