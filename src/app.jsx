@@ -28,13 +28,11 @@ function App() {
     >
       <ShaderBackground />
       <div id="content" className="relative z-10">
-        {/* Hero Section */}
         <section
-  id="hero-section"
-  className="relative h-screen flex flex-col items-center justify-center pointer-events-auto"
->
-
-          <div className="backdrop-grayscale backdrop-brightness-50 bg-black/30 rounded-2xl p-6 text-center">
+          id="hero-section"
+          className="relative h-screen flex flex-col items-center justify-center pointer-events-auto"
+        >
+          <div className="text-white backdrop-grayscale backdrop-brightness-50 bg-black/30 rounded-2xl p-6 text-center">
             <h1 className="text-5xl font-bold mb-4">Hey, I'm Jam.</h1>
             <p className="text-5xl font-bold mb-4">
               I'm a full stack web developer
@@ -42,21 +40,21 @@ function App() {
           </div>
 
           <button
-  id="scroll-btn"
-  onClick={() => {
-    document.getElementById("more-section")?.scrollIntoView({ behavior: "smooth" });
-  }}
-  className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-white text-black p-4 rounded-full text-3xl shadow-lg transition duration-300 hover:bg-black hover:text-white z-20"
->
-  ↓
-</button>
-
+            id="scroll-btn"
+            onClick={() => {
+              document
+                .getElementById("more-section")
+                ?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-white text-black p-4 rounded-full text-3xl shadow-lg transition duration-300 hover:bg-black hover:text-white z-20"
+          >
+            ↓
+          </button>
         </section>
 
-        {/* More Section */}
         <section
           id="more-section"
-          className="min-h-screen bg-gray text-white flex items-center justify-center px-10 py-20"
+          className="min-h-screen bg-[#181a1b] text-white flex items-center justify-center px-10 py-20"
         >
           <div className="max-w-3xl text-center">
             <h2 className="text-4xl font-bold mb-4">More About Me</h2>

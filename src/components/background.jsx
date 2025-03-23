@@ -109,15 +109,19 @@ const ShaderBackground = () => {
       position: 'absolute',
       top: '0',
       left: '0',
-      width: '100%',
-      height: '100%',
+      width: '100vw',
+      height: '100vh',
+      maxWidth: '100%',
+      maxHeight: '100%',
+      overflow: 'hidden',
       zIndex: '-1',
-      pointerEvents: 'none' // 🔥 this is key!
+      pointerEvents: 'none',
     });
     
+    
     pane.element.style.position = 'absolute';
-    pane.element.style.top = '0';
-    pane.element.style.right = '0';
+    pane.element.style.top = '20px';
+    pane.element.style.right = '20px';
     pane.element.style.zIndex = '9999';
     pane.element.style.pointerEvents = 'auto';
     pane.element.style.display = 'none';
