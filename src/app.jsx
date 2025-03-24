@@ -12,7 +12,7 @@ const App = () => {
   const [isPaused, setIsPaused] = useState(false);
 
   // The full text to type, including a newline.
-  const fullText = "Hey, I'm Jam.\nFull stack web developer based in Sydney.";
+  const fullText = "Hey, I'm Jam.\nFull stack developer based in Sydney.";
 
   useEffect(() => {
     let index = 0;
