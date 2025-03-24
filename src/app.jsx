@@ -50,7 +50,6 @@ const App = () => {
     const onScroll = () => {
       const heroProgress = Math.min(container.scrollTop / (window.innerHeight * 0.3), 1);
       const canvasProgress = Math.min(container.scrollTop / (window.innerHeight * 0.9), 1);
-  
       hero.style.opacity = 1 - heroProgress;
       canvas.style.opacity = 1 - canvasProgress;
     };
@@ -59,7 +58,7 @@ const App = () => {
     return () => container.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Smooth snap scroll on wheel (down + up)
+  // Smooth snap scroll
   useEffect(() => {
     const container = document.getElementById("scroll-container");
     const hero = document.getElementById("hero-section");
@@ -70,8 +69,7 @@ const App = () => {
       e.preventDefault();
       if (scrolling) return;
       scrolling = true;
-      const target = e.deltaY > 0 ? more : hero;
-      target?.scrollIntoView({ behavior: "smooth" });
+      (e.deltaY > 0 ? more : hero)?.scrollIntoView({ behavior: "smooth" });
       setTimeout(() => (scrolling = false), 500);
     };
 
@@ -84,12 +82,16 @@ const App = () => {
       <ShaderBackground />
 
       <div id="content" className="relative z-10">
-        <section id="hero-section" className="relative h-screen flex flex-col items-center justify-center snap-start" style={{ scrollSnapAlign: "start" }}>
-          <div className="text-white bg-black/50 rounded-4xl p-4 text-center text-5xl whitespace-pre-line">
-            {typedText}
-            <span className={`ml-1 ${(typingDone||isPaused)?(showCursor?"opacity-100":"opacity-0"):"opacity-100"}`}>|</span>
+        <section id="hero-section" className="relative h-screen flex flex-col items-start justify-center snap-start px-8" style={{ scrollSnapAlign: "start" }}>
+        <div className="relative w-full max-w-[86rem] h-[10rem]">
+            <span className="absolute inset-0 bg-black/70 rounded-xl blur-xl opacity-60" />
+            <p className="relative text-white font-bold text-8xl sm:text-7xl leading-tight font-['Helvetica','Arial','sans-serif'] whitespace-pre-line ">
+              {typedText}<span className={`ml-1 ${(typingDone||isPaused)?(showCursor?"opacity-100":"opacity-0"):"opacity-100"}`}>|</span>
+            </p>
           </div>
-          <button id="scroll-btn" onClick={() => document.getElementById("more-section")?.scrollIntoView({ behavior: "smooth" })} className="absolute bottom-20 left-1/2 -translate-x-1/2 bg-white text-black p-4 rounded-full text-3xl shadow-lg hover:bg-black hover:text-white z-20">↓</button>
+          <button id="scroll-btn" onClick={() => document.getElementById("more-section")?.scrollIntoView({ behavior: "smooth" })} className="absolute bottom-12 left-1/2 -translate-x-1/2 bg-white text-black p-4 rounded-full text-3xl shadow-lg hover:bg-black hover:text-white z-20">
+            ↓
+          </button>
         </section>
 
         <section id="more-section" className="min-h-screen bg-[#181a1b] text-white flex items-center justify-center px-10 py-20 snap-start" style={{ scrollSnapAlign: "start" }}>
