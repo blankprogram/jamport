@@ -17,7 +17,7 @@ const App = () => {
   useEffect(() => {
     let index = 0;
     let cancelled = false;
-    const initialDelay = 1000; // wait before typing starts
+    const initialDelay = 500; // wait before typing starts
 
     const type = () => {
       if (cancelled) return;
@@ -31,7 +31,7 @@ const App = () => {
           setTimeout(() => {
             setIsPaused(false);
             type();
-          }, 800);
+          }, 1000);
         } else {
           setTimeout(type, 40);
         }
@@ -102,7 +102,7 @@ const App = () => {
           className="relative h-screen flex flex-col items-center justify-center pointer-events-auto snap-start"
           style={{ scrollSnapAlign: "start" }}
         >
-          <div className="text-white bg-black/30 rounded-2xl p-6 text-center text-5xl whitespace-pre-line">
+          <div className="text-white bg-black/50 rounded-4xl p-4 text-center text-5xl whitespace-pre-line">
             {typedText}
             <span
               className={`ml-1 ${
