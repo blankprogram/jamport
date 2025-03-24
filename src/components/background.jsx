@@ -54,6 +54,7 @@ const ShaderBackground = () => {
     });
     const asciiMesh = new Mesh(gl, { geometry, program: asciiProgram });
 
+    
     const pane = new Pane();
     pane.element.style.display = 'none';
     pane.addBinding(perlinProgram.uniforms.uFrequency, 'value', {
