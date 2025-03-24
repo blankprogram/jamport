@@ -1,10 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import { Renderer, Camera, Mesh, Plane, Program, RenderTarget } from 'ogl';
-import { resolveLygia } from 'resolve-lygia';
 import { Pane } from 'tweakpane';
 
 import vertex from '../shaders/vertex.glsl?raw';
-import fragment from '../shaders/fragment.glsl?raw';
+import fragment from '../shaders/fragment.precompiled.glsl?raw';
 import asciiVertex from '../shaders/ascii-vertex.glsl?raw';
 import asciiFragment from '../shaders/ascii-fragment.glsl?raw';
 
@@ -31,7 +30,7 @@ const ShaderBackground = () => {
 
     const perlinProgram = new Program(gl, {
       vertex,
-      fragment: resolveLygia(fragment),
+      fragment,
       uniforms: {
         uTime: { value: 0 },
         uFrequency: { value: 5.0 },
